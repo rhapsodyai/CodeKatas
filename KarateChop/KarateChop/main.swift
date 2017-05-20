@@ -32,7 +32,7 @@ func chop(value: Int, array: [Int]) -> Bool{
     }
     
     //for _ in 0 ..< numberOfLevels(a: array) {
-    for count in 1 ..< 4 {
+    for count in 1 ..< numberOfLevels(a: a) {
         
          if(count == 1) {
             //if search value greater than current node
@@ -99,11 +99,7 @@ func bubbleUp(i: inout Int) {
 
 func numberOfLevels(a: [Int]) -> Int {
     //maximum number of nodes is 2^h-1
-    print("Tree height \(pow(2, a.count))")
-    let twoh = pow(2, a.count) - 1
-    let result = NSDecimalNumber(decimal: twoh)
-    return Int(result)
-
+    return Int(log2(Double(a.count))) + 1
 }
 
 func printStats(n: Int, a: [Int]) {
